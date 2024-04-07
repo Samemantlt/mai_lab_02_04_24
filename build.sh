@@ -1,0 +1,1 @@
+gcc list.c list.h main.c
