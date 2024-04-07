@@ -67,6 +67,8 @@ void insertionSort(List *list)
 #if DEBUG_SORT
     int iteration = 0;
 #endif
+    Iterator last = Last(list);
+    
     while (true)
     {
         Iterator insertNode = findInsertionSortNode(list);
@@ -84,7 +86,7 @@ void insertionSort(List *list)
         {
             int current = targetNode.node->data;
 
-            if (current <= insertNodeValue)
+            if (current <= insertNodeValue || Equal(&targetNode, &last))
             {
                 Next(&targetNode);
                 Insert(list, &targetNode, insertNodeValue);
